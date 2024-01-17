@@ -20,7 +20,7 @@ export const WeatherDataProvider = ({ children }) => {
 	useEffect(() => {
 		async function getCity() {
 			try {
-				const { data } = await axios.get('https://geolocation-db.com/json/')
+				const { data } = await axios.get('http://ip-api.com/json/')
 				setCurrentCity(data)
 				getWeahterData(currentCity, currentUnit)
 				setLocation(data)
