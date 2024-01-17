@@ -22,7 +22,7 @@ export const WeatherDataProvider = ({ children }) => {
 			try {
 				const { data } = await axios.get('http://ip-api.com/json/')
 				setCurrentCity(data)
-				getWeahterData(currentCity, currentUnit)
+				getWeahterData(data.city, currentUnit)
 				setLocation(data)
 			} catch (error) {
 				toast.error(error.message)
@@ -32,13 +32,13 @@ export const WeatherDataProvider = ({ children }) => {
 		getWeahterData()
 	}, [currentUnit])
 
-	async function getWeahterData(city, unit = 'metric') {
+	async function getWeahterData(city) {
 		const apiKey = 'UAZC4BXMKVMU56J6FYHXAHS9A'
-
+		console.log(city)
 		try {
 			setLoading(true)
 			const { data } = await axios.get(
-				`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=${unit}&key=${apiKey}`,
+				`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=${apiKey}&contentType=json`,
 				{
 					timeout: 10000,
 				}
