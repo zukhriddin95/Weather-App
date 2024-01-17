@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import cloud from '../assets/cloud.png'
+import cloud from '../assets/Cloud.png'
 import navigationTop from '../assets/hourly/navigationTop.png'
 import Sunny from '../assets/hourly/sunsun.png'
 import { useWeatherValue } from '../context/weatherData'
